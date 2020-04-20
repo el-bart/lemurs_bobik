@@ -23,7 +23,9 @@ module gear_()
   pi=3.1415926535897932385;
   l=2*pi*r;
   n=l/(0.8*2);
-  echo("XXXXXXXXXXXX: ", n);
+  echo("R=", r);
+  echo("N=", n);
+  echo("ratio=", n/16);
   cylinder(r=r, h=h, $fs=0.1, $fn=100);
   for(i=[0:n-1])
     rotate(i*[0, 0, 360/n])

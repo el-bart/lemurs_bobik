@@ -6,19 +6,18 @@ module tooth_(h)
   {
     union()
     {
-      translate([0, 0.2, 0])
+      translate([0, 0.4, 0])
         cylinder(r=0.8/2, h=h);
-      translate([-0.4, 0, 0])
-        cube([0.8, 0.2, h]);
+      translate([-0.4, -0.1, 0])
+        cube([0.8, 0.5, h]);
     }
     translate([-0.4, -1, 0])
       cube([0.8, 1, h]);
   }
 }
 
-module gear_()
+module gear_(h)
 {
-  h=6;
   r=22.1544;
   pi=3.1415926535897932385;
   l=2*pi*r;
@@ -26,7 +25,7 @@ module gear_()
   echo("R=", r);
   echo("N=", n);
   echo("ratio=", n/16);
-  cylinder(r=r, h=h, $fs=0.1, $fn=100);
+  cylinder(r=r, h=h, $fn=200);
   for(i=[0:n-1])
     rotate(i*[0, 0, 360/n])
       translate([0, r, 0])
@@ -35,10 +34,17 @@ module gear_()
 
 module wheel()
 {
-  cylinder(h=5, r=40);
-  translate([0, 0, 5])
-    gear_();
+  h=6;
+  difference()
+  {
+    union()
+    {
+      cylinder(h=h, r=40, $fs=0.1, $fn=100);
+      translate([0, 0, h])
+        gear_(h);
+    }
+    cylinder(r=4.5/2, h=2*h+1, $fn=100);
+  }
 }
 
-//wheel();
-gear_();
+wheel();

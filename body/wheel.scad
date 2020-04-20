@@ -43,8 +43,10 @@ module wheel()
       translate([0, 0, h])
         gear_(h);
     }
-    cylinder(r=4.5/2, h=2*h+1, $fn=100);
+    cylinder(r=4.3/2, h=2*h+1, $fn=100);
   }
 }
 
-wheel();
+for(i=[0:1])
+  translate(i*[0, 80+5, 0])
+    wheel();

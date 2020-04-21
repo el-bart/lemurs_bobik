@@ -1,5 +1,5 @@
 # name of the application
-export PROGRAM_NAME:=usb-pwr-ctrl
+export PROGRAM_NAME:=lemurs_bobik
 
 # toolchain
 export CC :=avr-gcc

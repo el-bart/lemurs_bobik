@@ -4354,11 +4354,11 @@ Source: AVX .. aphvc.pdf</description>
 <part name="SUPPLY5" library="supply2" deviceset="0V" device=""/>
 <part name="SV1" library="con-amp-mt" deviceset="S06P" device=""/>
 <part name="SUPPLY6" library="supply2" deviceset="0V" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0805K"/>
-<part name="C2" library="rcl" deviceset="C-EU" device="C0805K"/>
-<part name="C3" library="rcl" deviceset="C-EU" device="C0805K"/>
-<part name="C4" library="rcl" deviceset="C-EU" device="C0805K"/>
-<part name="C5" library="rcl" deviceset="C-EU" device="C0805K"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0805K" value="10nF"/>
+<part name="C2" library="rcl" deviceset="C-EU" device="C0805K" value="10nF"/>
+<part name="C3" library="rcl" deviceset="C-EU" device="C0805K" value="10nF"/>
+<part name="C4" library="rcl" deviceset="C-EU" device="C0805K" value="10nF"/>
+<part name="C5" library="rcl" deviceset="C-EU" device="C0805K" value="10nF"/>
 </parts>
 <sheets>
 <sheet>

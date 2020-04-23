@@ -756,17 +756,21 @@ design rules under a new name.</description>
 <element name="R7" library="rcl" package="MINI_MELF-0204W" value="100kR" x="60.96" y="29.21"/>
 <element name="R8" library="rcl" package="MINI_MELF-0204W" value="100kR" x="71.12" y="29.21" rot="R180"/>
 <element name="R9" library="rcl" package="MINI_MELF-0204W" value="100kR" x="73.66" y="21.59" rot="R180"/>
-<element name="SV4" library="con-amp-mt" package="S05P" value="stepper #1" x="66.04" y="77.47">
+<element name="SV4" library="con-amp-mt" package="S05P" value="stepper #1" x="66.04" y="77.47" smashed="yes">
 <attribute name="MPN" value="" x="66.04" y="77.47" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="66.04" y="77.47" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="66.04" y="77.47" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="66.04" y="77.47" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="75.2818" y="79.121" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="48.2308" y="79.121" size="1.27" layer="27" ratio="10"/>
 </element>
-<element name="SV5" library="con-amp-mt" package="S05P" value="stepper #2" x="67.31" y="2.54" rot="R180">
+<element name="SV5" library="con-amp-mt" package="S05P" value="stepper #2" x="67.31" y="2.54" smashed="yes" rot="R180">
 <attribute name="MPN" value="" x="67.31" y="2.54" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="" x="67.31" y="2.54" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="67.31" y="2.54" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="67.31" y="2.54" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="79.6582" y="2.159" size="1.27" layer="25" ratio="10" rot="R180"/>
+<attribute name="VALUE" x="57.1792" y="2.159" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="D1" library="diode" package="DO35-10" value="1N4446" x="76.2" y="67.31" rot="R180"/>
 <element name="D2" library="diode" package="DO35-10" value="1N4446" x="73.66" y="71.12" rot="R180"/>

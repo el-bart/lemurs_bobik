@@ -142,7 +142,8 @@
 <wire x1="88.57" y1="-1.27" x2="88.57" y2="81.27" width="0" layer="20"/>
 <wire x1="88.57" y1="81.27" x2="34.29" y2="81.27" width="0" layer="20"/>
 <wire x1="34.29" y1="81.27" x2="34.29" y2="-1.27" width="0" layer="20"/>
-<text x="43.18" y="8.89" size="1.778" layer="51" rot="R90">Lemur's Bobik
+<text x="45.72" y="7.62" size="1.778" layer="51" rot="R90">Lemur's Bobik
+control board
 v1.0</text>
 </plain>
 <libraries>

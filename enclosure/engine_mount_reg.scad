@@ -1,23 +1,30 @@
 $fn=80;
 
-difference()
+module engine_mount_reg()
 {
-  hull()
-  {
-    for(dx=[0,25])
-      translate([dx,0,0])
-        cylinder(r=8, h=5);
-  }
-  
-  union()
+  difference()
   {
     hull()
     {
-      for(dx=[15,25])
-        translate([dx,0,-1])
-          cylinder(r=3.3, h=5+2*1);
+      for(dx=[0,25])
+        translate([dx,0,0])
+          cylinder(r=8, h=5);
     }
-    translate([0,0,-1])
-      cylinder(r=3.3, h=5+2*1);
+
+    union()
+    {
+      hull()
+      {
+        for(dx=[15,25])
+          translate([dx,0,-1])
+            cylinder(r=3.3, h=5+2*1);
+      }
+      translate([0,0,-1])
+        cylinder(r=3.3, h=5+2*1);
+    }
   }
 }
+
+for(dy=[0:1])
+  translate(dy*[0, 18, 0])
+    engine_mount_reg();

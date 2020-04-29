@@ -87,7 +87,7 @@ module main_hull()
         engine_();
   }
   // battery pack mount
-  translate([-(63+2*(1+2))/2, -130, wall])
+  translate([-(63+2*(1+2))/2, -100, wall])
   {
     difference()
     {
@@ -101,8 +101,36 @@ module main_hull()
       battery_pack();
   }
   // buttons mount
-  translate([0,0,0])
+  translate([-86.1/2, -42/2, wall])
   {
+    for(dx=[-1, 86.1-10+1])
+      for(dy=[-1, 42-10+1])
+        translate([dx, dy, 0])
+          difference()
+          {
+            cube([10, 10, 75-wall-1]);
+            translate([10/2, 10/2, 75-wall-1-15])
+              cylinder(r=3.3/2, h=15+1, $fn=30);
+          }
+    translate([30, 15, 0])
+      cube([10, 10, 75-wall-1]);
+    %translate([0, 0, 75-wall-1])
+      buttons_board();
+  }
+  // control board
+  translate([-80.1/2, -52.5/2+60, wall])
+  {
+    for(dx=[-2, 80.1-10+2])
+      for(dy=[-2, 52.5-10+2])
+        translate([dx, dy, 0])
+          difference()
+          {
+            cube([10, 10, 15]);
+            translate([10/2, 10/2, 75-wall-1-15])
+              cylinder(r=3.3/2, h=10+1, $fn=30);
+          }
+    %translate([0, 0, 15])
+      control_board();
   }
 }
 

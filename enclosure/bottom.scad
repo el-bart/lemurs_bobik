@@ -1,4 +1,5 @@
 use<wheel.scad>
+use<electronics_mocks.scad>
 
 wall=4;
 
@@ -28,6 +29,7 @@ module engine_()
 
 module main_hull()
 {
+  // main part
   difference()
   {
     // core
@@ -83,6 +85,20 @@ module main_hull()
     %translate([dx*(73), -28, 60/2+wall])
       rotate(dx*[0, 90, 0])
         engine_();
+  }
+  // battery pack mount
+  translate([-(63+2*(1+2))/2, -130, wall])
+  {
+    difference()
+    {
+      cube([63+2*(1+2), 58+2*(1+2), 10]);
+      translate([2,2,0])
+        cube([63+2*1, 58+2*1, 10+1]);
+      translate([63+2*(1+2)-10-13, 58+(1+2), 0])
+        cube([10, 10, 20]);
+    }
+    %translate([1+2, 1+2, 0])
+      battery_pack();
   }
 }
 

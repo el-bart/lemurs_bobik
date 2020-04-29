@@ -33,9 +33,9 @@ module main_hull()
   difference()
   {
     // core
-    cylinder(r=340/2, h=65, $fn=400);
+    cylinder(r=340/2, h=75, $fn=400);
     translate(wall*[0,0,1])
-      cylinder(r=340/2-wall, h=65, $fn=400);
+      cylinder(r=340/2-wall, h=75, $fn=400);
     // cut-outs for wheels
     for(dx=[-1,1])
       translate([dx*118-10/2, 0, 0])
@@ -100,6 +100,11 @@ module main_hull()
     %translate([1+2, 1+2, 0])
       battery_pack();
   }
+  // buttons mount
+  translate([0,0,0])
+  {
+  }
 }
+
 
 main_hull();

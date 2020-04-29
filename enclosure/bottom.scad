@@ -123,7 +123,7 @@ module main_hull()
       buttons_board();
   }
   // control board
-  translate([-80.1/2, -52.5/2+60, wall])
+  translate([-80.1/2, -52.5/2+70, wall])
   {
     for(dx=[-2, 80.1-10+2])
       for(dy=[-2, 52.5-10+2])
@@ -149,6 +149,11 @@ module main_hull()
               translate([10/2, 10/2, 75-15])
                 cylinder(r=3.3/2, h=15+1, $fn=30);
             }
+  // reinforcements for better rigidity of the bottom
+  for(rot=[0, 90])
+    rotate([0, 0, 45+rot])
+      translate([-wall/2, -340/2, wall])
+        cube([wall, 340, wall]);
 }
 
 

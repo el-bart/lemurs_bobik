@@ -61,8 +61,8 @@ module buttons_board()
   }
 }
 
-%translate([0, 60, 0])
+translate([0, 60, 0])
   battery_pack();
-%translate([0, 130, 0])
+translate([0, 130, 0])
   control_board();
-%buttons_board();
+buttons_board();

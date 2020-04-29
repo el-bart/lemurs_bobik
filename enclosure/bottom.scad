@@ -41,6 +41,11 @@ module main_hull()
       translate([dx*118-10/2, 0, 0])
         translate([0, -80/2, -1])
           cube([10, 80, wall+2]);
+    // screw for mounting balancing elements
+    for(dx=[-1, +1])
+      for(dy=[-1, +1])
+        translate([dx*10, dy*140, -1])
+          cylinder(r=3.3/2, h=wall+1+1, $fn=30);
   }
   // wheel pivot axis
   difference()
@@ -126,12 +131,24 @@ module main_hull()
           difference()
           {
             cube([10, 10, 15]);
-            translate([10/2, 10/2, 75-wall-1-15])
+            translate([10/2, 10/2, 5])
               cylinder(r=3.3/2, h=10+1, $fn=30);
           }
     %translate([0, 0, 15])
       control_board();
   }
+  // top part screw holders
+  for(rot=[0, 90])
+    for(d=[-1, 1])
+      rotate([0,0,rot])
+        translate((340/2-7)*[d, 0, 0])
+          translate(10/2*[-1,-1,0])
+            difference()
+            {
+              cube([10, 10, 75]);
+              translate([10/2, 10/2, 75-15])
+                cylinder(r=3.3/2, h=15+1, $fn=30);
+            }
 }
 
 

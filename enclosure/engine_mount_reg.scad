@@ -8,7 +8,7 @@ module engine_mount_reg()
     {
       for(dx=[0,25])
         translate([dx,0,0])
-          cylinder(r=8, h=5);
+          cylinder(r=7, h=5);
     }
 
     union()
@@ -17,14 +17,14 @@ module engine_mount_reg()
       {
         for(dx=[15,25])
           translate([dx,0,-1])
-            cylinder(r=3.3, h=5+2*1);
+            cylinder(r=3.3/2, h=5+2*1);
       }
       translate([0,0,-1])
-        cylinder(r=3.3, h=5+2*1);
+        cylinder(r=3.3/2, h=5+2*1);
     }
   }
 }
 
 for(dy=[0:1])
-  translate(dy*[0, 18, 0])
+  translate(dy*[0, 16, 0])
     engine_mount_reg();

@@ -5,4 +5,4 @@
 #define MHz   (1000L*KHz)
 
 // quarc frequency in [Hz]
-#define F_CPU (1L*MHz)
+#define F_CPU (128L*KHz)

@@ -107,7 +107,7 @@ flash_mcu:
 	# flash program
 	avrdude -P avrdoper -c usbasp -p t2313 -U flash:w:gen/$(PROFILE)/$(BIN_FILE)
 	# setup fuse bits to enable external clock source
-	avrdude -P avrdoper -c usbasp -p t2313 -U lfuse:w:0xe6:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
+	avrdude -P avrdoper -c usbasp -p t2313 -U lfuse:w:0x64:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
 
 .PHONY: setup_ft232
 setup_ft232:

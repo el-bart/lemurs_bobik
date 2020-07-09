@@ -100,19 +100,17 @@ test: TARGET:=test
 test:
 	@$(run-in-gen)
 
+.PHONY: flash_fuse
+flash_fuse:
+	@[ -n "$(PROFILE)" ] || { echo "profile MUST be set" ; exit 1 ; }
+	@[ -f "gen/$(PROFILE)/$(BIN_FILE)" ] || { echo "file to flash must exist" ; exit 2 ; }
+	avrdude -P avrdoper -c usbasp -p t2313 -U lfuse:w:0x64:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
+
 .PHONY: flash_mcu
 flash_mcu:
 	@[ -n "$(PROFILE)" ] || { echo "profile MUST be set" ; exit 1 ; }
 	@[ -f "gen/$(PROFILE)/$(BIN_FILE)" ] || { echo "file to flash must exist" ; exit 2 ; }
-	# flash program
 	avrdude -P avrdoper -c usbasp -p t2313 -U flash:w:gen/$(PROFILE)/$(BIN_FILE)
-	# setup fuse bits to enable external clock source
-	avrdude -P avrdoper -c usbasp -p t2313 -U lfuse:w:0x64:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
-
-.PHONY: setup_ft232
-setup_ft232:
-	# setup proper parameters of the FT232 chip, enabling it to take more power and provide 6MHz clock
-	ft232r_prog --cbus2 Clk6 --manufacturer "BaSz" --product "usb power controller" --max-bus-power 500
 
 .PHONY: clean
 clean:

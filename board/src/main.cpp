@@ -3,16 +3,34 @@
 #include <util/delay.h>
 
 // LEFT  SEQ: PD0 PD2 PD1 PD3
-// RIGHT SEQ: PB0 PB1 PB2 PB3
+// RIGHT SEQ: PB0 PB2 PB1 PB3
 // min  - 15[ms] per step!
 // good - 30[ms] per step!
 
 // BUT_UP:    PD6
-// BUT_DOWN:  PB5
+// BUT_DOWN:  PB4
 // BUT_LEFT:  PD4
 // BUT_RIGHT: PD5
 
 // BUT_START: PA0
+
+
+template<typename F>
+void turn_if(F&& f)
+{
+  while(true)
+  {
+    if( f() )
+      continue;
+    constexpr int seq[] = {0,2,1,3};
+    for(auto bit: seq)
+    {
+      PORTD = _BV(bit);
+      PORTB = _BV(bit);
+      _delay_ms(30);
+    }
+  }
+}
 
 int main(void)
 {
@@ -20,8 +38,24 @@ int main(void)
   DDRD |= _BV(PD0) | _BV(PD1) | _BV(PD2) | _BV(PD3);
   DDRB |= _BV(PB0) | _BV(PB1) | _BV(PB2) | _BV(PB3);
 
+  // UP button
+#if 0
+  DDRD  &= ~_BV(6);
+  PORTD |=  _BV(6);
+  turn_if( [] { return PIND & _BV(6); } );
+#endif
 
-  while(true)
+  // DOWN button
+#if 1
+  DDRB  &= ~_BV(4);
+  PORTB |=  _BV(4);
+  turn_if( [] { return PINB & _BV(4); } );
+#endif
+
+  while(true) { }
+
+  //while(true)
+  for(auto i=0; i<(1*30)/4; ++i)
   {
     constexpr int seq[] = {0,2,1,3};
     for(auto bit: seq)
@@ -36,5 +70,8 @@ int main(void)
     //wdt.reset();
     // TODO
   }
+
+  PORTD = 0x00;
+  PORTB = 0x00;
 }
 

@@ -39,17 +39,38 @@ int main(void)
   DDRB |= _BV(PB0) | _BV(PB1) | _BV(PB2) | _BV(PB3);
 
   // UP button
-#if 0
+#if 1
   DDRD  &= ~_BV(6);
   PORTD |=  _BV(6);
   turn_if( [] { return PIND & _BV(6); } );
 #endif
 
   // DOWN button
-#if 1
+#if 0
   DDRB  &= ~_BV(4);
   PORTB |=  _BV(4);
   turn_if( [] { return PINB & _BV(4); } );
+#endif
+
+  // LEFT button
+#if 0
+  DDRD  &= ~_BV(4);
+  PORTD |=  _BV(4);
+  turn_if( [] { return PIND & _BV(4); } );
+#endif
+
+  // RIGHT button
+#if 0
+  DDRD  &= ~_BV(5);
+  PORTD |=  _BV(5);
+  turn_if( [] { return PIND & _BV(5); } );
+#endif
+
+  // START button
+#if 0
+  DDRA  &= ~_BV(0);
+  PORTA |=  _BV(0);
+  turn_if( [] { return PINA & _BV(0); } );
 #endif
 
   while(true) { }

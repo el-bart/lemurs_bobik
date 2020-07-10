@@ -21,7 +21,12 @@ void turn_if(F&& f)
   while(true)
   {
     if( f() )
+    {
+      PORTD &= ~( _BV(PD0) | _BV(PD1) | _BV(PD2) | _BV(PD3) );
+      PORTB &= ~( _BV(PB0) | _BV(PB1) | _BV(PB2) | _BV(PB3) );
       continue;
+    }
+
     constexpr int seq[] = {0,2,1,3};
     for(auto bit: seq)
     {

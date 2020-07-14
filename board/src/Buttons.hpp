@@ -1,6 +1,5 @@
 #pragma once
 #include "config.hpp"
-#include <util/delay.h>
 
 // BUT_UP:    PD6
 // BUT_DOWN:  PB4

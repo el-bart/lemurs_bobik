@@ -6,3 +6,7 @@
 
 // quarc frequency in [Hz]
 #define F_CPU (1L*MHz)
+
+// stepper motor settings
+constexpr auto steps_per_turn = 30l;
+constexpr auto steps_per_drive_len = 100l;

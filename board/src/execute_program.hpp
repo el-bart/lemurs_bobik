@@ -55,14 +55,12 @@ private:
   template<typename FL, typename FR>
   bool execute_turn(FL&& left, FR&& right)
   {
-    constexpr auto steps_per_turn = 30l;
     return execute_action(left, right, steps_per_turn);
   }
 
   template<typename FL, typename FR>
   bool execute_drive(FL&& left, FR&& right)
   {
-    constexpr auto steps_per_drive_len = 100l;
     return execute_action(left, right, steps_per_drive_len);
   }
 

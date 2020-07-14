@@ -32,4 +32,13 @@ inline bool left_pressed()  { return not (PIND & _BV(4)); }
 inline bool right_pressed() { return not (PIND & _BV(5)); }
 inline bool start_pressed() { return not (PINA & _BV(0)); }
 
+inline bool any_pressed()
+{
+  return up_pressed()    ||
+         down_pressed()  ||
+         left_pressed()  ||
+         right_pressed() ||
+         start_pressed();
+}
+
 }

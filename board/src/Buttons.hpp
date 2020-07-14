@@ -1,8 +1,8 @@
 #pragma once
 #include "config.hpp"
 
-// BUT_UP:    PD6
-// BUT_DOWN:  PB4
+// BUT_FWD:   PD6
+// BUT_BCK:   PB4
 // BUT_LEFT:  PD4
 // BUT_RIGHT: PD5
 
@@ -25,18 +25,18 @@ inline void init()
 }
 
 
-inline bool up_pressed()    { return not (PIND & _BV(6)); }
-inline bool down_pressed()  { return not (PINB & _BV(4)); }
-inline bool left_pressed()  { return not (PIND & _BV(4)); }
-inline bool right_pressed() { return not (PIND & _BV(5)); }
-inline bool start_pressed() { return not (PINA & _BV(0)); }
+inline bool forward_pressed()  { return not (PIND & _BV(6)); }
+inline bool backward_pressed() { return not (PINB & _BV(4)); }
+inline bool left_pressed()     { return not (PIND & _BV(4)); }
+inline bool right_pressed()    { return not (PIND & _BV(5)); }
+inline bool start_pressed()    { return not (PINA & _BV(0)); }
 
 inline bool any_pressed()
 {
-  return up_pressed()    ||
-         down_pressed()  ||
-         left_pressed()  ||
-         right_pressed() ||
+  return forward_pressed()  ||
+         backward_pressed() ||
+         left_pressed()     ||
+         right_pressed()    ||
          start_pressed();
 }
 

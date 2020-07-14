@@ -2,9 +2,11 @@
 
 enum class Direction: uint8_t
 {
+  Forward,
+  Backward,
+
   Left,
   Right,
-  Up,
-  Down,
+
   Stop
 };

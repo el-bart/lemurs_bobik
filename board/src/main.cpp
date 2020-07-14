@@ -3,6 +3,9 @@
 #include <util/delay.h>
 #include "Buttons.hpp"
 #include "Engines.hpp"
+#include "Direction.hpp"
+#include "read_program.hpp"
+#include "execute_program.hpp"
 
 enum class Dir
 {
@@ -33,42 +36,27 @@ void turn_steps(const Dir left_dir, const Dir right_dir)
 }
 
 
+inline void start_delay(Watchdog& wdg)
+{
+  for(auto i=0; i<5; ++i)
+  {
+    _delay_ms(100);
+    wdg.reset();
+  }
+}
+
+
 int main(void)
 {
   Buttons::init();
+  Direction dirs[32];
   Watchdog wdg;
 
   while(true)
   {
     wdg.reset();
-
-    if( Buttons::up_pressed() )
-    {
-      turn_steps(Dir::Fwd, Dir::Fwd);
-      continue;
-    }
-    if( Buttons::down_pressed() )
-    {
-      turn_steps(Dir::Rev, Dir::Rev);
-      continue;
-    }
-    if( Buttons::left_pressed() )
-    {
-      turn_steps(Dir::Fwd, Dir::Rev);
-      continue;
-    }
-    if( Buttons::right_pressed() )
-    {
-      turn_steps(Dir::Rev, Dir::Fwd);
-      continue;
-    }
-
-    if( Buttons::start_pressed() )
-    {
-      turn_steps(Dir::Fwd, Dir::Fwd);
-      turn_steps(Dir::Rev, Dir::Rev);
-      continue;
-    }
+    read_program(dirs, wdg);
+    start_delay(wdg);
+    execute_program(dirs, wdg);
   }
-
 }

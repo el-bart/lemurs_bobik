@@ -7,34 +7,9 @@
 #include "read_program.hpp"
 #include "execute_program.hpp"
 
-enum class Dir
+
+namespace
 {
-  Fwd,
-  Rev
-};
-
-template<typename E>
-void turn_engine(E& e, const Dir dir)
-{
-  switch(dir)
-  {
-    case Dir::Fwd: e.step_forward(); break;
-    case Dir::Rev: e.step_backward(); break;
-  }
-}
-
-Engines::Left left;
-Engines::Right right;
-
-void turn_steps(const Dir left_dir, const Dir right_dir)
-{
-  turn_engine(left, left_dir);
-  turn_engine(right,right_dir);
-  Engines::step_delay();
-  left.off();
-  right.off();
-}
-
 
 inline void start_delay(Watchdog& wdg)
 {
@@ -43,6 +18,8 @@ inline void start_delay(Watchdog& wdg)
     _delay_ms(100);
     wdg.reset();
   }
+}
+
 }
 
 

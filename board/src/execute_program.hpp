@@ -10,11 +10,7 @@ namespace detail
 
 struct EnginesControl
 {
-  ~EnginesControl()
-  {
-    left_.off();
-    right_.off();
-  }
+  ~EnginesControl() { off(); }
 
   auto execute_step(const Direction dir)
   {
@@ -25,8 +21,7 @@ struct EnginesControl
       case Direction::Left:     return execute_turn ( [&] { left_.step_backward(); }, [&] { right_.step_forward();  } );
       case Direction::Right:    return execute_turn ( [&] { left_.step_forward();  }, [&] { right_.step_backward(); } );
       case Direction::Stop:
-                                left_.off();
-                                right_.off();
+                                off();
                                 Watchdog::reset();
                                 return false;
     }
@@ -34,6 +29,12 @@ struct EnginesControl
   }
 
 private:
+  void off()
+  {
+    left_.off();
+    right_.off();
+  }
+
   inline void step_delay() const { _delay_ms(30); }
 
   template<typename FL, typename FR>

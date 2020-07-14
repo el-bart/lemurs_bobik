@@ -10,6 +10,12 @@ namespace detail
 
 struct EnginesControl
 {
+  ~EnginesControl()
+  {
+    left_.off();
+    right_.off();
+  }
+
   auto execute_step(const Direction dir)
   {
     switch(dir)
@@ -38,7 +44,6 @@ private:
       left();
       right();
       step_delay();
-      // TODO: disable engines here!
       Watchdog::reset();
       if( Buttons::any_pressed() )
         return false;

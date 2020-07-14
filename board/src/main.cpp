@@ -36,11 +36,12 @@ void turn_steps(const Dir left_dir, const Dir right_dir)
 int main(void)
 {
   Buttons::init();
-
-  //Watchdog wdt;
+  Watchdog wdg;
 
   while(true)
   {
+    wdg.reset();
+
     if( Buttons::up_pressed() )
     {
       turn_steps(Dir::Fwd, Dir::Fwd);

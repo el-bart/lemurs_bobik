@@ -74,8 +74,8 @@ private:
 };
 
 
-using Left  = Generic<PortD, _BV(0), _BV(2), _BV(1), _BV(3)>;
-using Right = Generic<PortB, _BV(0), _BV(2), _BV(1), _BV(3)>;
+using Left  = Generic<PortD, _BV(3), _BV(1), _BV(2), _BV(0)>;
+using Right = Generic<PortB, _BV(3), _BV(1), _BV(2), _BV(0)>;
 
 
 inline void step_delay() { _delay_ms(30); }

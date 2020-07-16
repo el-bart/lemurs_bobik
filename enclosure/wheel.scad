@@ -1,4 +1,9 @@
-module tooth_(h)
+use <gears.scad>;
+
+h=6;
+
+
+module engine_mount_tooth_(h)
 {
   $fs=0.01;
   $fn=0;
@@ -16,37 +21,51 @@ module tooth_(h)
   }
 }
 
-module gear_(h)
+module engine_mount_(h)
 {
-  r=22.1544;
-  pi=3.1415926535897932385;
-  l=2*pi*r;
-  n=l/(0.8*2);
-  echo("R=", r);
-  echo("N=", n);
-  echo("ratio=", n/16);
+  r=9/2-1.2;
+  n=16;
   cylinder(r=r, h=h, $fn=200);
   for(i=[0:n-1])
     rotate(i*[0, 0, 360/n])
-      translate([0, r, 0])
-        tooth_(h);
+      translate([0, r-0.1, 0])
+        engine_mount_tooth_(h);
 }
 
-module wheel()
+module gear_(h, tooth_number)
 {
-  h=6;
+  spur_gear(modul=2,
+            tooth_number=tooth_number,
+            width=h,
+            bore=1,
+            pressure_angle=20,
+            helix_angle=0,
+            optimized=false);
+}
+
+module wheel(h)
+{
   difference()
   {
     union()
     {
       cylinder(h=h, r=40, $fs=0.1, $fn=100);
       translate([0, 0, h])
-        gear_(h);
+        gear_(h, 20);
     }
     cylinder(r=4.3/2, h=2*h+1, $fn=100);
   }
 }
 
 for(i=[0:1])
-  translate(i*[0, 80+5, 0])
-    wheel();
+  translate(i*[80+5, 0, 0])
+    {
+      wheel(h);
+
+      translate([0, 60, 0])
+        difference()
+        {
+          gear_(h, 15);
+          engine_mount_(h);
+        }
+    }

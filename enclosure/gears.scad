@@ -1071,7 +1071,7 @@ module worm_gear(modul, tooth_number, thread_starts, width, length, worm_bore, g
 
 //mountable_herringbone_rack(modul=1, length=60, height=5, width=20, pressure_angle=20, helix_angle=45, profile=3, head="PH",fastners=3);
 
-spur_gear(modul=0.5, tooth_number=20, width=0.6, bore=3, pressure_angle=20, helix_angle=0, optimized=false);
+//spur_gear(modul=0.5, tooth_number=20, width=0.6, bore=3, pressure_angle=20, helix_angle=0, optimized=false);
 
 //herringbone_gear (modul=1, tooth_number=30, width=5, bore=4, pressure_angle=20, helix_angle=30, optimized=true);
 

@@ -1,4 +1,5 @@
 // BaSz note - obtained from: https://github.com/chrisspen/gears.git
+
 $fn = 50;
 
 /* Library for Involute Gears, Screws and Racks
@@ -7,7 +8,7 @@ This library contains the following modules
 - rack(modul, length, height, width, pressure_angle=20, helix_angle=0)
 - mountable_rack(modul, length, height, width, pressure_angle=20, helix_angle=0, fastners, profile, head)
 - herringbone_rack(modul, length, height, width, pressure_angle = 20, helix_angle=45)
-- mountable_herringbone_rack(modul, length, height, width, pressure_angle=20, helix_angle=45, fastners, profile, head)
+- mountable_herringbone_rack(modul, length, height, width, pressure_angle=20, helix_angle=45, fastners, profile, head) 
 - spur_gear(modul, tooth_number, width, bore, pressure_angle=20, helix_angle=0, optimized=true)
 - herringbone_gear(modul, tooth_number, width, bore, pressure_angle=20, helix_angle=0, optimized=true)
 - rack_and_pinion (modul, rack_length, gear_teeth, rack_height, gear_bore, width, pressure_angle=20, helix_angle=0, together_built=true, optimized=true)
@@ -1071,7 +1072,7 @@ module worm_gear(modul, tooth_number, thread_starts, width, length, worm_bore, g
 
 //mountable_herringbone_rack(modul=1, length=60, height=5, width=20, pressure_angle=20, helix_angle=45, profile=3, head="PH",fastners=3);
 
-//spur_gear(modul=0.5, tooth_number=20, width=0.6, bore=3, pressure_angle=20, helix_angle=0, optimized=false);
+//spur_gear (modul=1, tooth_number=30, width=5, bore=4, pressure_angle=20, helix_angle=20, optimized=true);
 
 //herringbone_gear (modul=1, tooth_number=30, width=5, bore=4, pressure_angle=20, helix_angle=30, optimized=true);
 

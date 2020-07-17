@@ -51,7 +51,7 @@ module wheel(h)
     {
       cylinder(h=h, r=40, $fs=0.1, $fn=100);
       translate([0, 0, h])
-        gear_(h, 20);
+        gear_(h, 15);
     }
     cylinder(r=4.3/2, h=2*h+1, $fn=100);
   }
@@ -62,10 +62,10 @@ for(i=[0:1])
     {
       wheel(h);
 
-      translate([0, 60, 0])
+      translate([0, 55, 0])
         difference()
         {
-          gear_(h, 15);
+          gear_(h, 11);
           engine_mount_(h);
         }
     }

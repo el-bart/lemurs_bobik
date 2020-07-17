@@ -25,11 +25,14 @@ module engine_mount_(h)
 {
   r=9/2-1.2;
   n=16;
-  cylinder(r=r, h=h, $fn=200);
-  for(i=[0:n-1])
-    rotate(i*[0, 0, 360/n])
-      translate([0, r-0.1, 0])
-        engine_mount_tooth_(h);
+  scale((9-0.5)/6.5)
+  {
+    cylinder(r=r, h=h, $fn=200);
+    for(i=[0:n-1])
+      rotate(i*[0, 0, 360/n])
+        translate([0, r-0.1, 0])
+          engine_mount_tooth_(h);
+  }
 }
 
 module gear_(h, tooth_number)

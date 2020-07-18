@@ -7,21 +7,35 @@
 namespace detail
 {
 
+inline void wait()
+{
+  _delay_ms(1);
+  Watchdog::reset();
+}
+
+inline void wait_for_any_button_state(const bool state)
+{
+  while( Buttons::any_pressed() == not state )
+    wait();
+}
+
 inline void wait_for_all_buttons_released()
 {
-  while( Buttons::any_pressed() )
-  {
-    _delay_ms(10);
-    Watchdog::reset();
-  }
+  return wait_for_any_button_state(false);
+}
+
+inline void wait_for_any_button_pressed()
+{
+  return wait_for_any_button_state(true);
 }
 
 
-Direction read_next_direction()
+inline Direction read_next_direction()
 {
   while(true)
   {
-    Watchdog::reset();
+    wait_for_any_button_pressed();
+
     if( Buttons::forward_pressed() )
     {
       wait_for_all_buttons_released();
@@ -56,6 +70,8 @@ Direction read_next_direction()
 template<uint8_t N>
 void read_program(Direction (&dirs)[N])
 {
+  detail::wait_for_all_buttons_released();
+
   for(auto i=0; i<N-1; ++i)
   {
     const auto dir = detail::read_next_direction();
@@ -63,5 +79,6 @@ void read_program(Direction (&dirs)[N])
     if(dir == Direction::Stop)
       return;
   }
+
   dirs[N-1] = Direction::Stop;
 }

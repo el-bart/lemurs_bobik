@@ -1,6 +1,6 @@
 .SECONDARY:
 
-SCADS  := $(filter-out $(wildcard *.scad), gears.scad)
+SCADS  := $(wildcard *.scad)
 STLS   := $(wildcard *.stl) $(SCADS:.scad=.stl)
 STLS   := $(sort $(STLS))  # remove duplicates
 GCODES := $(STLS:.stl=.gcode)

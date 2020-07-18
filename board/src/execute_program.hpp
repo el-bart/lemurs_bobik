@@ -35,7 +35,17 @@ private:
     right_.off();
   }
 
-  inline void step_delay() const { _delay_ms(30); }
+  inline bool step_delay() const
+  {
+    for(auto i=0; i<30; ++i)
+    {
+      _delay_ms(1);
+      Watchdog::reset();
+      if( Buttons::any_pressed() )
+        return false;
+    }
+    return true;
+  }
 
   template<typename FL, typename FR>
   bool execute_action(FL&& left, FR&& right, const uint16_t steps)
@@ -44,9 +54,7 @@ private:
     {
       left();
       right();
-      step_delay();
-      Watchdog::reset();
-      if( Buttons::any_pressed() )
+      if( not step_delay() )
         return false;
     }
     return true;
@@ -71,9 +79,9 @@ private:
 
 inline void inter_dir_delay()
 {
-  for(auto i=0; i<5; ++i)
+  for(auto i=0; i<50; ++i)
   {
-    _delay_ms(100);
+    _delay_ms(10);
     Watchdog::reset();
   }
 }

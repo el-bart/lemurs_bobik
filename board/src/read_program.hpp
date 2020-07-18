@@ -13,10 +13,26 @@ inline void wait()
   Watchdog::reset();
 }
 
+inline bool is_state_stable(const bool state)
+{
+  for(auto i=0; i<10; ++i)
+  {
+    if( Buttons::any_pressed() == not state )
+      return false;
+    wait();
+  }
+  return true;
+}
+
 inline void wait_for_any_button_state(const bool state)
 {
-  while( Buttons::any_pressed() == not state )
-    wait();
+  while(true)
+  {
+    while( Buttons::any_pressed() == not state )
+      wait();
+    if( is_state_stable(state) )
+      return;
+  }
 }
 
 inline void wait_for_all_buttons_released()

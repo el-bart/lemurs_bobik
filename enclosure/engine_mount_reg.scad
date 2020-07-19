@@ -6,7 +6,7 @@ module engine_mount_reg()
   {
     hull()
     {
-      for(dx=[0,25])
+      for(dx=[0,42])
         translate([dx,0,0])
           cylinder(r=7, h=5);
     }
@@ -15,7 +15,7 @@ module engine_mount_reg()
     {
       hull()
       {
-        for(dx=[15,25])
+        #for(dx=[32,42])
           translate([dx,0,-1])
             cylinder(r=3.3/2, h=5+2*1);
       }

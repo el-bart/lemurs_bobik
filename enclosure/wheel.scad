@@ -39,11 +39,11 @@ module wheel()
   {
     union()
     {
-      cylinder(h=h, r=40, $fs=0.1, $fn=100);
+      cylinder(h=h, r=40, $fs=0.1, $fn=1*360);
       translate([0, 0, h])
         gear_(h);
     }
-    cylinder(r=4.3/2, h=2*h+1, $fn=100);
+    cylinder(r=4.3/2, h=2*h+1, $fn=1*360);
   }
 }
 

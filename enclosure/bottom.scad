@@ -33,9 +33,9 @@ module main_hull()
   difference()
   {
     // core
-    cylinder(r=340/2, h=75, $fn=400);
+    cylinder(r=340/2, h=75, $fn=3*360);
     translate(wall*[0,0,1])
-      cylinder(r=340/2-wall, h=75, $fn=400);
+      cylinder(r=340/2-wall, h=75, $fn=3*360);
     // cut-outs for wheels
     for(dx=[-1,1])
       translate([dx*118-10/2, 0, 0])

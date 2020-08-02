@@ -2,3 +2,4 @@
 *.gcode
 *.time
 *.tmp
+*.md5

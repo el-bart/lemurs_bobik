@@ -6,7 +6,7 @@ wall=4;
 module cap_block_()
 {
   // external ring
-  rotate_extrude($fn=1*360)
+  rotate_extrude($fn=0.1*360)
     translate([340/2-wall, 0, 0])
       difference()
       {
@@ -80,18 +80,61 @@ module buttons_holes_()
     cube([30, 15, 2]);
 }
 
+module arrow_(h)
+{
+  for(m=[0,1])
+    mirror([m, 0, 0])
+    difference()
+    {
+      cube([5, 10, h]);
+      translate([5, 0, -1/2])
+        rotate([0, 0, 26.6])
+          cube([5, 15, h+1]);
+    }
+}
+
+module play_stop_(h)
+{
+  translate([-10/2, 0, 0])
+    cube([10, 3, h]);
+  translate([0, 3+2, 0])
+    arrow_(h);
+}
+
 module main_cap()
 {
+  txt_h=2*0.2;
   difference()
   {
     cap_block_();
     cap_holes_();
     translate([-86.10/2, -42/2, -1])
       buttons_holes_();
+    translate([0, 0, wall-txt_h])
+    {
+      // up
+      translate([-16.5, 22.5, 0])
+        arrow_(txt_h+0.5);
+      // down
+      translate([-16.5, -22.5, 0])
+        mirror([0,1,0])
+          arrow_(txt_h+0.5);
+      // left
+      translate([-43, 0, 0])
+        mirror([1,1,0])
+          arrow_(txt_h+0.5);
+      // right
+      translate([11.5, 0, 0])
+        mirror([-1,1,0])
+          arrow_(txt_h+0.5);
+      // start/stop
+      translate([42.5, 0, 0])
+        mirror([-1,1,0])
+          play_stop_(txt_h+0.5);
+    }
   }
 }
 
 
-rotate(180*[1,0,0])
-  main_cap();
+main_cap();
 //%translate([0,0,-75]) main_hull();

@@ -103,35 +103,37 @@ module play_stop_(h)
 
 module main_cap()
 {
-  txt_h=2*0.2;
+  // main plate
   difference()
   {
     cap_block_();
     cap_holes_();
     translate([-86.10/2, -42/2, -1])
       buttons_holes_();
-    translate([0, 0, wall-txt_h])
-    {
-      // up
-      translate([-16.5, 22.5, 0])
-        arrow_(txt_h+0.5);
-      // down
-      translate([-16.5, -22.5, 0])
-        mirror([0,1,0])
-          arrow_(txt_h+0.5);
-      // left
-      translate([-43, 0, 0])
-        mirror([1,1,0])
-          arrow_(txt_h+0.5);
-      // right
-      translate([11.5, 0, 0])
-        mirror([-1,1,0])
-          arrow_(txt_h+0.5);
-      // start/stop
-      translate([42.5, 0, 0])
-        mirror([-1,1,0])
-          play_stop_(txt_h+0.5);
-    }
+  }
+  // arrows
+  txt_h=4*0.2;
+  translate([0, 0, wall])
+  {
+    // up
+    translate([-16.5, 22.5, 0])
+      arrow_(txt_h);
+    // down
+    translate([-16.5, -22.5, 0])
+      mirror([0,1,0])
+        arrow_(txt_h);
+    // left
+    translate([-43, 0, 0])
+      mirror([1,1,0])
+        arrow_(txt_h);
+    // right
+    translate([11.5, 0, 0])
+      mirror([-1,1,0])
+        arrow_(txt_h);
+    // start/stop
+    translate([42.5, 0, 0])
+      mirror([-1,1,0])
+        play_stop_(txt_h);
   }
 }
 

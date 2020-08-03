@@ -111,6 +111,9 @@ module main_cap()
     translate([-86.10/2, -42/2, -1])
       buttons_holes_();
   }
+  // laser range finder mock
+  translate([0, 90, wall])
+    cylinder(r1=80/2, r2=70/2, h=20, $fn=0.5*360);
   // arrows
   txt_h=4*0.2;
   translate([0, 0, wall])

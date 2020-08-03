@@ -39,7 +39,7 @@ module button_hole_()
     translate(-3*[1,0,0])
       cube([12+2*1+2*3, 12+2*1, 2]);
     // capacitor
-    translate([12+2*1+2, (12+2*1-10)/2, 0])
+    translate([12+2*1+4-2, (12+2*1-10)/2, 0])
       cube([8-4, 10, 3]);
   }
 }

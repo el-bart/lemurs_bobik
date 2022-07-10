@@ -5,3 +5,4 @@
 * add nut space on top of screw holes, so that it can be easily screwed in.
 * add program-reset button.
 * put stronger stepper motors, and avoid need for a reduction. NEMA 17 motors (typical ones for 3D printers) seem perfect here!
+* add some status LEDs on the top.

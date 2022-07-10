@@ -9,8 +9,12 @@ its programming is thus similar to Logo programming language, but does not requi
 
 robot's body is designed to mimic a bit autonomic vacuum cleaner robots, that children know and love. :)
 
+![comparison of toy and real robot](pic/comparison.jpg)
+
 
 ## why such a weirdo set of parts?!
+
+![robot's interior](pic/inside.jpg)
 
 part SMD, part THT... yes... i know... the thing started during COVID-19 lockdown in my country and the initial idea was to make it all with what i had at home at the moment.
 have a look at `TODO.txt` file, that lists loads of things that shall be improved / changed.

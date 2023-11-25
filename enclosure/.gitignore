@@ -1,5 +1,1 @@
-*.stl
-*.gcode
-*.time
-*.tmp
-*.md5
+build/*

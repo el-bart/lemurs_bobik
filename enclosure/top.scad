@@ -1,4 +1,3 @@
-use<electronics_mocks.scad>
 use<bottom.scad>
 
 wall=4;
@@ -26,7 +25,7 @@ module cap_holes_()
     for(d=[-1, 1])
       rotate([0,0,rot])
         translate((340/2-7)*[d, 0, 0])
-          cylinder(r=3.3/2, h=wall+1, $fn=30);
+          cylinder(d=3+0.5, h=wall+1, $fn=30);
 }
 
 module button_hole_()

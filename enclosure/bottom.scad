@@ -92,8 +92,9 @@ module main_hull()
           difference()
           {
             cube([10, 10, 75-wall-1]);
+            // slot for M3 threaded inserts
             translate([10/2, 10/2, 75-wall-1-15])
-              cylinder(r=3.3/2, h=15+1, $fn=30);
+              cylinder(d=4.6, h=15+1, $fn=30);
           }
     translate([30, 15, 0])
       cube([10, 10, 75-wall-1]);
@@ -109,8 +110,9 @@ module main_hull()
           difference()
           {
             cube([10, 10, 15]);
+            // slot for M3 threaded inserts
             translate([10/2, 10/2, 5])
-              cylinder(r=3.3/2, h=10+1, $fn=30);
+              cylinder(d=4.6, h=10+1, $fn=30);
           }
     %translate([0, 0, 15])
       control_board();
@@ -124,8 +126,9 @@ module main_hull()
             difference()
             {
               cube([10, 10, 75]);
+              // slot for M3 threaded inserts
               translate([10/2, 10/2, 75-15])
-                cylinder(r=3.3/2, h=15+1, $fn=30);
+                cylinder(d=4.6, h=15+1, $fn=30);
             }
   // reinforcements for better rigidity of the bottom
   for(rot=[0, 90])

@@ -1,30 +1,8 @@
 use<wheel.scad>
 use<detail/electronics_mocks.scad>
+use<detail/stepper_mock.scad>
 
 wall=4;
-
-module engine_()
-{
-  cylinder(r=42/2, h=23);
-  difference()
-  {
-    hull()
-    {
-      for(dx=[-1,1])
-        translate([dx*(56.5/2-2*5/2), 0, 23-1])
-          cylinder(r=5, h=1);
-    }
-    for(dx=[-1,1])
-      translate([dx*(56.5-2*1.8-2*3.5/2)/2, 0, 23-1-1])
-        cylinder(r=3.3/2, h=3);
-  }
-  translate([0, 0, 23])
-  {
-    cylinder(r=1, h=18.8);
-    translate([0, 0, 18.8-5])
-      cylinder(r=9/2, h=5);
-  }
-}
 
 
 module main_hull()
@@ -89,7 +67,7 @@ module main_hull()
     }
     %translate([dx*(73), -28, 60/2+wall])
       rotate(dx*[0, 90, 0])
-        engine_();
+        stepper_mock();
   }
   // battery pack mount
   translate([-(63+2*(1+2))/2, -100, wall])

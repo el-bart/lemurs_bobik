@@ -70,6 +70,7 @@ module main_hull()
         stepper_mock();
   }
   // battery pack mount
+  // TODO: this sesction is to be replaced by LiPo pack
   translate([-(63+2*(1+2))/2, -100, wall])
   {
     difference()

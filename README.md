@@ -18,3 +18,11 @@ robot's body is designed to mimic a bit autonomic vacuum cleaner robots, that ch
 
 part SMD, part THT... yes... i know... the thing started during COVID-19 lockdown in my country and the initial idea was to make it all with what i had at home at the moment.
 have a look at `TODO.txt` file, that lists loads of things that shall be improved / changed.
+
+
+## HW parts
+* 2x NEMA17 stepper motor: 17HS4023
+* 4x M3x10 screws
+* 4x M3 threaded inserts
+
+TODO: wrap up the list

@@ -19,11 +19,6 @@ module main_hull()
       translate([dx*118-10/2, 0, 0])
         translate([0, -80/2, -1])
           cube([10, 80, wall+2]);
-    // screw for mounting balancing elements
-    for(dx=[-1, +1])
-      for(dy=[-1, +1])
-        translate([dx*10, dy*140, -1])
-          cylinder(r=3.3/2, h=wall+1+1, $fn=30);
   }
   // wheel pivot axis
   difference()

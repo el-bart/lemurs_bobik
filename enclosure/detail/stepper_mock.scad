@@ -55,7 +55,7 @@ module stepper_mock()
   difference()
   {
     body();
-    #stepper_mount_holes_template()
+    stepper_mount_holes_template()
       translate([0, 0, -5])
         cylinder(d=3, h=5+eps, $fn=fn(20));
   }

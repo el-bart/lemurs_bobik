@@ -1,5 +1,5 @@
 use<wheel.scad>
-use<electronics_mocks.scad>
+use<detail/electronics_mocks.scad>
 
 wall=4;
 

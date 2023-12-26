@@ -24,33 +24,55 @@ inline bool is_state_stable(const bool state)
   return true;
 }
 
-inline void wait_for_any_button_state(const bool state)
+inline bool wait_for_any_button_state(const bool state, const uint32_t timeout_ms)
 {
+  uint32_t t=0;
   while(true)
   {
     while( Buttons::any_pressed() == not state )
       wait();
     if( is_state_stable(state) )
-      return;
+      return true;
+    ++t;
+    if( timeout_ms != 0u && t >= timeout_ms )
+      return false;
   }
 }
 
-inline void wait_for_all_buttons_released()
+inline bool wait_for_all_buttons_released()
 {
-  return wait_for_any_button_state(false);
+  return wait_for_any_button_state(false, 0u);
 }
 
-inline void wait_for_any_button_pressed()
+inline bool wait_for_any_button_pressed()
 {
-  return wait_for_any_button_state(true);
+  return wait_for_any_button_state(true, 2u*60'000u);
 }
 
 
-inline Direction read_next_direction()
+struct OptionalDirection
+{
+  static OptionalDirection empty() { return OptionalDirection{}; }
+
+  OptionalDirection(Direction dir):
+    dir_{dir},
+    has_value_{true}
+  { }
+
+  const Direction dir_{Direction::Stop};
+  const bool has_value_{false};
+
+private:
+  OptionalDirection() = default;
+};
+
+
+inline OptionalDirection read_next_direction()
 {
   while(true)
   {
-    wait_for_any_button_pressed();
+    if( not wait_for_any_button_pressed() )
+      return OptionalDirection::empty();
 
     if( Buttons::forward_pressed() )
     {
@@ -84,17 +106,21 @@ inline Direction read_next_direction()
 
 
 template<uint8_t N>
-void read_program(Direction (&dirs)[N])
+bool read_program(Direction (&dirs)[N])
 {
   detail::wait_for_all_buttons_released();
 
   for(auto i=0; i<N-1; ++i)
   {
-    const auto dir = detail::read_next_direction();
+    const auto opt_dir = detail::read_next_direction();
+    if(not opt_dir.has_value_)
+      return false;
+    const auto dir = opt_dir.dir_;
     dirs[i] = dir;
     if(dir == Direction::Stop)
-      return;
+      return true;
   }
 
   dirs[N-1] = Direction::Stop;
+  return true;
 }

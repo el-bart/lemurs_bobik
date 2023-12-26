@@ -33,7 +33,8 @@ int main(void)
   while(true)
   {
     Watchdog::reset();
-    read_program(dirs);
+    if( not read_program(dirs) )
+      PowerCtrl::power_off();
     start_delay();
     execute_program(dirs);
   }

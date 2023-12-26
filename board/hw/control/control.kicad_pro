@@ -201,7 +201,17 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      "pin_not_connected|2400300|1320800|a0be0a43-411c-499f-b69c-30f045d1b54d|00000000-0000-0000-0000-000000000000|||",
+      "pin_not_connected|2400300|1727200|f4ad70cb-10e9-490a-8977-4aec550c82ed|00000000-0000-0000-0000-000000000000|||",
+      "pin_not_connected|2400300|419100|ba346c01-eb8a-4876-ae81-2db03115b87a|00000000-0000-0000-0000-000000000000|||",
+      "pin_not_connected|2400300|838200|d5a4cc89-36c7-4977-9a3a-04d633c86dce|00000000-0000-0000-0000-000000000000|||",
+      "power_pin_not_driven|1778000|965200|64f1bae3-6dda-41d1-936d-73f644db2aa5|00000000-0000-0000-0000-000000000000|||",
+      "power_pin_not_driven|2400300|1066800|5002ece1-824b-407f-b147-c035c19fbf7d|00000000-0000-0000-0000-000000000000|||",
+      "power_pin_not_driven|254000|558800|35b8ce8b-53d8-43b2-9092-53abdc4e45e5|00000000-0000-0000-0000-000000000000|||",
+      "power_pin_not_driven|584200|1092200|17f3f444-e367-4c3e-ae43-30b935bc749d|00000000-0000-0000-0000-000000000000|||",
+      "power_pin_not_driven|584200|1092200|6a788afe-65b4-4c43-bb82-a9447682c401|00000000-0000-0000-0000-000000000000|||"
+    ],
     "meta": {
       "version": 0
     },
@@ -385,7 +395,7 @@
       "different_unit_net": "error",
       "duplicate_reference": "error",
       "duplicate_sheet_names": "error",
-      "endpoint_off_grid": "warning",
+      "endpoint_off_grid": "ignore",
       "extra_units": "error",
       "global_label_dangling": "warning",
       "hier_label_mismatch": "error",

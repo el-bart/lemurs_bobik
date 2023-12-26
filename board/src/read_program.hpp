@@ -26,17 +26,15 @@ inline bool is_state_stable(const bool state)
 
 inline bool wait_for_any_button_state(const bool state, const uint32_t timeout_ms)
 {
-  uint32_t t=0;
-  while(true)
+  const auto no_timeout = static_cast<bool>( timeout_ms == 0u );
+  for(uint32_t t=0; no_timeout || t<timeout_ms; ++t)
   {
     while( Buttons::any_pressed() == not state )
       wait();
     if( is_state_stable(state) )
       return true;
-    ++t;
-    if( timeout_ms != 0u && t >= timeout_ms )
-      return false;
   }
+  return false;
 }
 
 inline bool wait_for_all_buttons_released()

@@ -6,14 +6,22 @@ image="$(sed "s%^$vcs_root/%%" <<< "$app_dir" | tr '/.' '_' | tr '[:upper:]' '[:
 
 docker build -t "$image" "$app_dir/docker/"
 
-EXTRA_FLAGS=()
+docker_run_flags=()
 if tty -s
 then
-  EXTRA_FLAGS+=("-it")
+  docker_run_flags+=("-it")
+fi
+
+if [ "${KICAD_SDK_USE_PERSISTENT_HOME:-false}" == "true" ]
+then
+  mkdir -p "$app_dir/home"
+  docker_run_flags+=("-e" "HOME=/mnt/home")
+else
+  docker_run_flags+=("-e" "HOME=/tmp")
 fi
 
 docker run \
-  "${EXTRA_FLAGS[@]}" \
+  "${docker_run_flags[@]}" \
   --rm \
   --network=none \
   -e QT_X11_NO_MITSHM=1 \

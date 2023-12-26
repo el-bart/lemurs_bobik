@@ -35,5 +35,3 @@ COPY \
   list_cu_layers \
   print_on_error \
   /usr/local/bin/
-
-ENV HOME=/tmp/

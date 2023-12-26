@@ -1966,7 +1966,7 @@
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 3e1e6664-82ab-4faa-a197-ecb1d15251dd)
     )
-    (fp_text value "stepper #1" (at 2.794 4.826) (layer "F.SilkS")
+    (fp_text value "stepper #1" (at 2.56 4.826 180 unlocked) (layer "F.SilkS")
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp a2a86024-801d-4938-9a30-48cc3297c4f3)
     )

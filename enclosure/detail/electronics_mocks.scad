@@ -8,15 +8,22 @@ module battery_pack()
 
 module control_board()
 {
-  difference()
-  {
-    cube([80.1, 52.5, 2]);
-    translate([(80.1-74.5)/2, (52.5-46.2)/2, 0])
-      for(dx=[0, 74.5])
-        for(dy=[0,46.2])
-          translate([dx, dy, -1])
-            cylinder(r=3.5/2, h=2+1+1, $fn=10);
-  }
+//  translate([0, 0, 10])
+  if(true)
+    translate([-1, -0.55, 0]) // re-position on top of old one
+      translate([-63.734, -121.361, 0]) // zero-out
+        rotate([0, 0, 90])
+          import("pcb_control.stl");
+  else
+    difference()
+    {
+      cube([80.1, 52.5, 2]);
+      translate([(80.1-74.5)/2, (52.5-46.2)/2, 0])
+        for(dx=[0, 74.5])
+          for(dy=[0,46.2])
+            translate([dx, dy, -1])
+              cylinder(r=3.5/2, h=2+1+1, $fn=10);
+    }
 }
 
 

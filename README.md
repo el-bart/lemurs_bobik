@@ -17,7 +17,9 @@ robot's body is designed to mimic a bit autonomic vacuum cleaner robots, that ch
 ![robot's interior](pic/inside.jpg)
 
 part SMD, part THT... yes... i know... the thing started during COVID-19 lockdown in my country and the initial idea was to make it all with what i had at home at the moment.
-have a look at `TODO.txt` file, that lists loads of things that shall be improved / changed.
+
+in 2024-12 electronics `v2.1` has been drafted, that's SMD-only now (well - except for connectors).
+therefor above picture is not up to date.
 
 
 ## HW parts

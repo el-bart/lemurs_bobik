@@ -21,7 +21,7 @@ have a look at `TODO.txt` file, that lists loads of things that shall be improve
 
 
 ## HW parts
-* 2x NEMA17 stepper motor: 17HS4023
+* 2x unipolar stepper motors
 * 4x M3x10 screws
 * 4x M3 threaded inserts
 

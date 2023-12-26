@@ -2,6 +2,7 @@
 #include "Watchdog.hpp"
 #include <util/delay.h>
 #include "Direction.hpp"
+#include "PowerCtrl.hpp"
 #include "read_program.hpp"
 #include "execute_program.hpp"
 
@@ -23,9 +24,11 @@ inline void start_delay()
 
 int main(void)
 {
-  Direction dirs[32];
+  PowerCtrl::init();
   Buttons::init();
   Watchdog::init();
+
+  Direction dirs[32];
 
   while(true)
   {

@@ -38,7 +38,8 @@ $(GERBER_DIR)/version.txt: Makefile
 $(GERBER_DIR)/version.txt: $(PCB)
 	$(SILENT)echo "GERBER $(GERBER_DIR)"
 	$(SILENT)mkdir -p "$(GERBER_DIR)"
-	$(SILENT)print_on_error kicad-cli pcb export gerbers --output "$(GERBER_DIR)" "$<"
+	$(SILENT)print_on_error kicad-cli pcb export gerbers --output "$(GERBER_DIR)/" "$<"
+	$(SILENT)print_on_error kicad-cli pcb export drill --format gerber --output "$(GERBER_DIR)/" "$<"
 	$(SILENT)md5sum "$<" > "$(GERBER_DIR)/version.txt"
 
 
@@ -92,6 +93,11 @@ $(GRAPHICS_DIR)/pcb.done: $(PCB)
 				print_on_error \
 					kicad-cli pcb export svg -l "$$l" --output "$(GRAPHICS_DIR)/pcb_$$l.svg" --exclude-drawing-sheet "$<" ; \
 			done
+	$(SILENT)print_on_error kicad-cli pcb export drill --format gerber --generate-map --map-format svg --output "$(GRAPHICS_DIR)/" "$<"
+	$(SILENT)rm -f "$(GRAPHICS_DIR)"/*drl.gbr
+	$(SILENT)cd "$(GRAPHICS_DIR)" && \
+			mv *-NPTH-drl-drl_map.svg NPTH-drl_map.svg && \
+			mv *-PTH-drl-drl_map.svg  PTH-drl_map.svg
 	$(SILENT)touch "$@"
 
 .PHONY: clean

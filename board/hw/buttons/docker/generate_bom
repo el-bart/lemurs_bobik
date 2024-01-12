@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import re
 import sys
 import pcbnew
 import csv
@@ -41,5 +42,7 @@ with open(out_file, 'w', newline='') as f:
     keys.sort()
     for key in keys:
         value, enc, refs = bom[key]
-        fw.writerow([i, enc, value, len(refs), simple_string(refs)])
+        refs_array = simple_string(refs).split(' ')
+        refs_sorted = sorted( refs_array, key=lambda e: int( re.sub('^[^0-9]+', '', e) ) )
+        fw.writerow([i, enc, value, len(refs), " ".join(refs_sorted)])
         i += 1

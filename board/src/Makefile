@@ -104,13 +104,13 @@ test:
 flash_fuse:
 	@[ -n "$(PROFILE)" ] || { echo "profile MUST be set" ; exit 1 ; }
 	@[ -f "gen/$(PROFILE)/$(BIN_FILE)" ] || { echo "file to flash must exist" ; exit 2 ; }
-	avrdude -P avrdoper -c usbasp -B 300kHz -p t2313 -U lfuse:w:0x64:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
+	avrdude -P avrdoper -c usbasp -B 250kHz -p t2313 -U lfuse:w:0x64:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
 
 .PHONY: flash_mcu
 flash_mcu:
 	@[ -n "$(PROFILE)" ] || { echo "profile MUST be set" ; exit 1 ; }
 	@[ -f "gen/$(PROFILE)/$(BIN_FILE)" ] || { echo "file to flash must exist" ; exit 2 ; }
-	avrdude -P avrdoper -c usbasp -B 300kHz -p t2313 -U flash:w:gen/$(PROFILE)/$(BIN_FILE)
+	avrdude -P avrdoper -c usbasp -B 250kHz -p t2313 -U flash:w:gen/$(PROFILE)/$(BIN_FILE)
 
 .PHONY: clean
 clean:

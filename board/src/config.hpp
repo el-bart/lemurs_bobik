@@ -9,4 +9,4 @@
 
 // stepper motor settings
 constexpr auto steps_per_turn = 220ul;
-constexpr auto steps_per_drive_len = 430ul;
+constexpr auto steps_per_drive_len = 500ul;

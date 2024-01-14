@@ -19,7 +19,7 @@ inline bool is_state_stable_one_round(const bool state)
   for(auto i = 0; i < 100; ++i)
     if( Buttons::any_pressed() == not state )
       ++fails;
-  return fails < 2;
+  return fails <= 2;
 }
 
 inline bool is_state_stable(const bool state)
@@ -43,7 +43,7 @@ inline bool is_state_stable(const bool state)
       continue;
     }
     ++lastMatchingRounds;
-    if( lastMatchingRounds == 1 + 10 )
+    if( lastMatchingRounds == 1 + 9 )
       return true;
   }
   return false;

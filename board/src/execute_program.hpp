@@ -37,7 +37,7 @@ private:
 
   inline bool step_delay() const
   {
-    for(auto i=0; i<10; ++i)
+    for(auto i=0; i<5; ++i)
     {
       _delay_ms(1);
       Watchdog::reset();

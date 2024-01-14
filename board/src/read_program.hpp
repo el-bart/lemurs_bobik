@@ -133,8 +133,6 @@ inline OptionalDirection read_next_direction()
 template<uint8_t N>
 bool read_program(Direction (&dirs)[N])
 {
-  detail::wait_for_all_buttons_released();
-
   for(auto i=0; i<N-1; ++i)
   {
     const auto opt_dir = detail::read_next_direction();
@@ -145,6 +143,8 @@ bool read_program(Direction (&dirs)[N])
     if(dir == Direction::Stop)
       return true;
   }
+
+  detail::wait_for_all_buttons_released();
 
   dirs[N-1] = Direction::Stop;
   return true;

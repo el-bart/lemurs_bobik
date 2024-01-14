@@ -26,5 +26,6 @@ therefor above picture is not up to date.
 * 2x unipolar stepper motors
 * 4x M3x10 screws
 * 4x M3 threaded inserts
+* velcro for holding LiPo pack in place (length according to your LiPo size)
 
 TODO: wrap up the list

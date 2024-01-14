@@ -16,7 +16,7 @@ robot's body is designed to mimic a bit autonomic vacuum cleaner robots, that ch
 
 ## HW parts
 
-* 2x unipolar stepper motors (i used ones from old desktop printer)
+* 2x unipolar stepper motors (M42SP-5M - from old desktop printer)
 * 12x M3x10 screws
 * 12x M3 threaded inserts
 * velcro for holding LiPo pack in place (length according to your LiPo size)

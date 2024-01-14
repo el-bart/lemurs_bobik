@@ -12,15 +12,6 @@ robot's body is designed to mimic a bit autonomic vacuum cleaner robots, that ch
 ![comparison of toy and real robot](pic/comparison.jpg)
 
 
-## why such a weirdo set of parts?!
-
-![robot's interior](pic/inside.jpg)
-
-part SMD, part THT... yes... i know... the thing started during COVID-19 lockdown in my country and the initial idea was to make it all with what i had at home at the moment.
-
-in 2024-12 electronics `v2.1` has been drafted, that's SMD-only now (well - except for connectors).
-therefor above picture is not up to date.
-
 
 ## HW parts
 * 2x unipolar stepper motors
@@ -29,3 +20,16 @@ therefor above picture is not up to date.
 * velcro for holding LiPo pack in place (length according to your LiPo size)
 
 TODO: wrap up the list
+
+
+## FAQ
+
+### why such a weirdo set of parts?!
+
+![robot's interior](pic/inside.jpg)
+
+part SMD, part THT... yes... i know... the thing started during COVID-19 lockdown in my country and the initial idea was to make it all with what i had at home at the moment.
+
+in 2024-12 electronics `v2.1` has been drafted, that's SMD-only now (well - except for connectors).
+therefor above picture is not up to date.
+

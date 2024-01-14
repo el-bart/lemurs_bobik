@@ -28,7 +28,7 @@ int main(void)
   Buttons::init();
   Watchdog::init();
 
-  Direction dirs[32];
+  Direction dirs[30];
 
   while(true)
   {

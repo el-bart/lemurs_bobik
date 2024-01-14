@@ -1,11 +1,3 @@
-module battery_pack()
-{
-  cube([63.1, 57.9, 16.25]);
-  translate([63.1-13-5, 57.9, 0])
-    cube([5, 5, 5]);
-}
-
-
 module control_board()
 {
 //  translate([0, 0, 10])
@@ -68,8 +60,6 @@ module buttons_board()
   }
 }
 
-translate([0, 60, 0])
-  battery_pack();
-translate([0, 130, 0])
+translate([0, 50, 0])
   control_board();
 buttons_board();

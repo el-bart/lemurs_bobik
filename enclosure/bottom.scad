@@ -66,19 +66,19 @@ module main_hull()
   }
   // battery pack mount
   // TODO: this sesction is to be replaced by LiPo pack
-  translate([-(63+2*(1+2))/2, -100, wall])
-  {
-    difference()
-    {
-      cube([63+2*(1+2), 58+2*(1+2), 10]);
-      translate([2,2,0])
-        cube([63+2*1, 58+2*1, 10+1]);
-      translate([63+2*(1+2)-10-13, 58+(1+2), 0])
-        cube([10, 10, 20]);
-    }
-    %translate([1+2, 1+2, 0])
-      battery_pack();
-  }
+//  #translate([-(63+2*(1+2))/2, -100, wall])
+//  {
+//    difference()
+//    {
+//      cube([63+2*(1+2), 58+2*(1+2), 10]);
+//      translate([2,2,0])
+//        cube([63+2*1, 58+2*1, 10+1]);
+//      translate([63+2*(1+2)-10-13, 58+(1+2), 0])
+//        cube([10, 10, 20]);
+//    }
+//    %translate([1+2, 1+2, 0])
+//      battery_pack();
+//  }
   // buttons mount
   translate([-86.1/2, -42/2, wall])
   {

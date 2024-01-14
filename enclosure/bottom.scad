@@ -1,6 +1,7 @@
 use<wheel.scad>
 use<detail/electronics_mocks.scad>
 use<detail/stepper_mock.scad>
+use<detail/battery_pack_holder.scad>
 
 wall=4;
 
@@ -64,21 +65,9 @@ module main_hull()
       rotate(dx*[0, 90, 0])
         stepper_mock();
   }
-  // battery pack mount
-  // TODO: this sesction is to be replaced by LiPo pack
-//  #translate([-(63+2*(1+2))/2, -100, wall])
-//  {
-//    difference()
-//    {
-//      cube([63+2*(1+2), 58+2*(1+2), 10]);
-//      translate([2,2,0])
-//        cube([63+2*1, 58+2*1, 10+1]);
-//      translate([63+2*(1+2)-10-13, 58+(1+2), 0])
-//        cube([10, 10, 20]);
-//    }
-//    %translate([1+2, 1+2, 0])
-//      battery_pack();
-//  }
+  // LiPo battery pack mount
+  translate([0, -135, wall])
+    battery_pack_holder();
   // buttons mount
   translate([-86.1/2, -42/2, wall])
   {

@@ -15,6 +15,7 @@ inline void wait()
 
 inline bool is_state_stable(const bool state)
 {
+  // TODO: stabilization should work by monitoring for certain amount of reads in a row that are in a given state
   for(auto i=0; i<3; ++i)
     wait();
   if( Buttons::any_pressed() == not state )

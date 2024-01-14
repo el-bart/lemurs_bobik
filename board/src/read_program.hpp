@@ -15,17 +15,18 @@ inline void wait()
 
 inline bool is_state_stable_one_round(const bool state)
 {
-  for(auto i = 0; i < 30; ++i)
+  auto fails = 0;
+  for(auto i = 0; i < 100; ++i)
     if( Buttons::any_pressed() == not state )
-      return false;
-  return true;
+      ++fails;
+  return fails < 2;
 }
 
 inline bool is_state_stable(const bool state)
 {
   auto lastState = Buttons::any_pressed();
   auto lastMatchingRounds = 0;
-  for(auto round = 0; round < 30; ++round)
+  for(auto round = 0; round < 50; ++round)
   {
     wait();
     auto const stateNow = Buttons::any_pressed();
@@ -42,7 +43,7 @@ inline bool is_state_stable(const bool state)
       continue;
     }
     ++lastMatchingRounds;
-    if( lastMatchingRounds == 1 + 3 )
+    if( lastMatchingRounds == 1 + 10 )
       return true;
   }
   return false;

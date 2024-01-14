@@ -58,16 +58,16 @@ private:
 
   uint8_t next_pos() const
   {
-    if(pos_ < 3)
-      return pos_ + 1;
-    return 0;
+    if(0 < pos_)
+      return pos_ - 1;
+    return 3;
   }
 
   uint8_t prev_pos() const
   {
-    if(0 < pos_)
-      return pos_ - 1;
-    return 3;
+    if(pos_ < 3)
+      return pos_ + 1;
+    return 0;
   }
 
   uint8_t pos_{0};

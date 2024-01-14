@@ -3011,7 +3011,7 @@
     (stroke (width 0.05) (type solid)) (layer "Edge.Cuts") (tstamp a1ab1794-b6cf-420c-a5d8-b1e4daf3907f))
   (gr_line (start 121.3611 63.7336) (end 121.3611 146.2736)
     (stroke (width 0.05) (type solid)) (layer "Edge.Cuts") (tstamp ec23cc15-cb06-4da2-b8a7-5887681adbc6))
-  (gr_text "Lemur's Bobik\ncontrol board\nv2.1" (at 134.62 138.684 90) (layer "F.SilkS") (tstamp a9a8d01b-4c1c-4a9c-ad0f-594d357d0c98)
+  (gr_text "Lemur's Bobik\ncontrol board\nv2.2" (at 134.62 138.684 90) (layer "F.SilkS") (tstamp a9a8d01b-4c1c-4a9c-ad0f-594d357d0c98)
     (effects (font (size 1.63576 1.63576) (thickness 0.14224)) (justify left bottom))
   )
   (gr_text "+12..+24V | GND" (at 121.666 99.822 270) (layer "F.SilkS") (tstamp fea35546-515c-40f8-9f6c-955f5ac60993)

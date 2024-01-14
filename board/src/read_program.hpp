@@ -15,12 +15,10 @@ inline void wait()
 
 inline bool is_state_stable(const bool state)
 {
-  for(auto i=0; i<10; ++i)
-  {
-    if( Buttons::any_pressed() == not state )
-      return false;
+  for(auto i=0; i<3; ++i)
     wait();
-  }
+  if( Buttons::any_pressed() == not state )
+    return false;
   return true;
 }
 

@@ -13,14 +13,39 @@ inline void wait()
   Watchdog::reset();
 }
 
+inline bool is_state_stable_one_round(const bool state)
+{
+  for(auto i = 0; i < 30; ++i)
+    if( Buttons::any_pressed() == not state )
+      return false;
+  return true;
+}
+
 inline bool is_state_stable(const bool state)
 {
-  // TODO: stabilization should work by monitoring for certain amount of reads in a row that are in a given state
-  for(auto i=0; i<3; ++i)
+  auto lastState = Buttons::any_pressed();
+  auto lastMatchingRounds = 0;
+  for(auto round = 0; round < 30; ++round)
+  {
     wait();
-  if( Buttons::any_pressed() == not state )
-    return false;
-  return true;
+    auto const stateNow = Buttons::any_pressed();
+    if( not is_state_stable_one_round(state) )
+    {
+      lastState = stateNow;
+      lastMatchingRounds = 0;
+      continue;
+    }
+    if( stateNow != lastState )
+    {
+      lastState = stateNow;
+      lastMatchingRounds = 0;
+      continue;
+    }
+    ++lastMatchingRounds;
+    if( lastMatchingRounds == 1 + 3 )
+      return true;
+  }
+  return false;
 }
 
 inline bool wait_for_any_button_state(const bool state, const uint32_t timeout_ms)

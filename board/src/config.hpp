@@ -8,5 +8,5 @@
 #define F_CPU (1L*MHz)
 
 // stepper motor settings
-constexpr auto steps_per_turn = 220ul;
+constexpr auto steps_per_turn = 227ul;
 constexpr auto steps_per_drive_len = 500ul;

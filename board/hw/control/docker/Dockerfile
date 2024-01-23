@@ -10,12 +10,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       ca-certificates \
       openssl && \
     cd /tmp/ && \
-    wget "https://ftp.debian.org/debian/pool/main/k/kicad/kicad_7.0.8+dfsg-1~bpo12+1_amd64.deb" && \
-    wget "https://ftp.debian.org/debian/pool/main/k/kicad/kicad-libraries_7.0.8+dfsg-1_all.deb" && \
-    wget "https://ftp.debian.org/debian/pool/main/k/kicad-footprints/kicad-footprints_7.0.8-1~bpo12+1_all.deb" && \
-    wget "https://ftp.debian.org/debian/pool/main/k/kicad-packages3d/kicad-packages3d_7.0.8-1~bpo12+1_all.deb" && \
-    wget "https://ftp.debian.org/debian/pool/main/k/kicad-symbols/kicad-symbols_7.0.8-1~bpo12+1_all.deb" && \
-    wget "https://ftp.debian.org/debian/pool/main/k/kicad-templates/kicad-templates_7.0.8-1~bpo12+1_all.deb" && \
+    wget "https://ftp.debian.org/debian/pool/main/k/kicad/kicad_7.0.10+dfsg-1~bpo12+1_amd64.deb" && \
+    wget "https://ftp.debian.org/debian/pool/main/k/kicad/kicad-libraries_7.0.10+dfsg-1_all.deb" && \
+    wget "https://ftp.debian.org/debian/pool/main/k/kicad-footprints/kicad-footprints_7.0.10-1~bpo12+1_all.deb" && \
+    wget "https://ftp.debian.org/debian/pool/main/k/kicad-packages3d/kicad-packages3d_7.0.10-1~bpo12+1_all.deb" && \
+    wget "https://ftp.debian.org/debian/pool/main/k/kicad-symbols/kicad-symbols_7.0.10-1~bpo12+1_all.deb" && \
+    wget "https://ftp.debian.org/debian/pool/main/k/kicad-templates/kicad-templates_7.0.9-1~bpo12+1_all.deb" && \
     apt-get install -y ./*.deb && \
     rm *.deb
 

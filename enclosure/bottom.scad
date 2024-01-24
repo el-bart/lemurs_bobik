@@ -127,9 +127,9 @@ module main_hull()
 
 main_hull();
 
-%if(false)
+%if(true)
 {
-  delta = 10;
+  delta = 20;
   translate([0, 0, cylinder_h + delta])
   {
     seal();

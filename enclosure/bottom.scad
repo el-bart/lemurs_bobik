@@ -3,6 +3,7 @@ use<wheel.scad>
 use<detail/electronics_mocks.scad>
 use<detail/stepper_mock.scad>
 use<detail/battery_pack_holder.scad>
+use<m3d/fn.scad>
 
 
 module main_hull()
@@ -11,9 +12,9 @@ module main_hull()
   difference()
   {
     // core
-    cylinder(r=cylinder_d/2, h=75, $fn=3*360);
+    cylinder(r=cylinder_d/2, h=75, $fn=fn(3*360));
     translate(wall*[0,0,1])
-      cylinder(r=cylinder_d/2-wall, h=75, $fn=3*360);
+      cylinder(r=cylinder_d/2-wall, h=75, $fn=fn(3*360));
     // cut-outs for wheels
     for(dx=[-1,1])
       translate([dx*118-10/2, 0, 0])
@@ -35,7 +36,7 @@ module main_hull()
       }
     translate([-300/2, 0, wall+4.3/2+25])
       rotate([0, 90, 0])
-        cylinder(r=4.3/2, h=300, $fn=20);
+        cylinder(r=4.3/2, h=300, $fn=fn(20));
   }
   // engines mounts
   for(dx=[-1,1])
@@ -48,7 +49,7 @@ module main_hull()
         cube([5, 20, 15]);
         translate([-5, 20/2, 3.3/2+4])
           rotate([0, 90, 0])
-            cylinder(r=3.3/2, h=15, $fn=20);
+            cylinder(r=3.3/2, h=15, $fn=fn(20));
       }
       // top mount tower
       translate([dx*5, -15, 0])
@@ -57,7 +58,7 @@ module main_hull()
           cube([5, 20, 65-wall]);
           translate([-5, 20/2, 3.3/2+65-wall-10])
             rotate([0,90,0])
-              cylinder(r=3.3/2, h=15, $fn=20);
+              cylinder(r=3.3/2, h=15, $fn=fn(20));
         }
     }
     %translate([dx*(73), -28, 60/2+wall])
@@ -78,7 +79,7 @@ module main_hull()
             cube([10, 10, 75-wall-1]);
             // slot for M3 threaded inserts
             translate([10/2, 10/2, 75-wall-1-15])
-              cylinder(d=4.6, h=15+1, $fn=30);
+              cylinder(d=4.6, h=15+1, $fn=fn(30));
           }
     translate([30, 15, 0])
       cube([10, 10, 75-wall-1]);
@@ -96,7 +97,7 @@ module main_hull()
             cube([10, 10, 15]);
             // slot for M3 threaded inserts
             translate([10/2, 10/2, 5])
-              cylinder(d=4.6, h=10+1, $fn=30);
+              cylinder(d=4.6, h=10+1, $fn=fn(30));
           }
     %translate([0, 0, 15])
       control_board();
@@ -112,7 +113,7 @@ module main_hull()
               cube([10, 10, 75]);
               // slot for M3 threaded inserts
               translate([10/2, 10/2, 75-15])
-                cylinder(d=4.6, h=15+1, $fn=30);
+                cylinder(d=4.6, h=15+1, $fn=fn(30));
             }
   // reinforcements for better rigidity of the bottom
   for(rot=[0, 90])

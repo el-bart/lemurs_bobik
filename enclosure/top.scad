@@ -1,11 +1,12 @@
 include<detail/config.scad>
 use<bottom.scad>
+use<m3d/fn.scad>
 
 
 module cap_block_()
 {
   // external ring
-  rotate_extrude($fn=1*360)
+  rotate_extrude($fn=fn(1*360))
     translate([cylinder_d/2-wall, 0, 0])
       difference()
       {
@@ -25,7 +26,7 @@ module cap_holes_()
     for(d=[-1, 1])
       rotate([0,0,rot])
         translate((cylinder_d/2-7)*[d, 0, 0])
-          cylinder(d=3+0.5, h=wall+1, $fn=30);
+          cylinder(d=3+0.5, h=wall+1, $fn=fn(30));
 }
 
 module button_hole_()
@@ -73,7 +74,7 @@ module buttons_holes_()
     for(dx=[0, 78.5])
       for(dy=[0, 34.8])
         translate([dx, dy, -1])
-          cylinder(r=6/2, h=1+3, $fn=10);
+          cylinder(r=6/2, h=1+3, $fn=fn(10));
   // cables soldering
   translate([86.1+2*1, 42+2*1, 1] - [40, 13, 0])
     cube([30, 15, 2]);
@@ -112,7 +113,7 @@ module main_cap()
   }
   // laser range finder mock
   translate([0, 90, wall])
-    cylinder(r1=80/2, r2=70/2, h=20, $fn=0.5*360);
+    cylinder(r1=80/2, r2=70/2, h=20, $fn=(0.5*360));
   // arrows
   txt_h=4*0.2;
   translate([0, 0, wall])

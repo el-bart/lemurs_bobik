@@ -1,9 +1,8 @@
+include<detail/config.scad>
 use<wheel.scad>
 use<detail/electronics_mocks.scad>
 use<detail/stepper_mock.scad>
 use<detail/battery_pack_holder.scad>
-
-wall=4;
 
 
 module main_hull()
@@ -12,9 +11,9 @@ module main_hull()
   difference()
   {
     // core
-    cylinder(r=340/2, h=75, $fn=3*360);
+    cylinder(r=cylinder_d/2, h=75, $fn=3*360);
     translate(wall*[0,0,1])
-      cylinder(r=340/2-wall, h=75, $fn=3*360);
+      cylinder(r=cylinder_d/2-wall, h=75, $fn=3*360);
     // cut-outs for wheels
     for(dx=[-1,1])
       translate([dx*118-10/2, 0, 0])
@@ -106,7 +105,7 @@ module main_hull()
   for(rot=[0, 90])
     for(d=[-1, 1])
       rotate([0,0,rot])
-        translate((340/2-7)*[d, 0, 0])
+        translate((cylinder_d/2-7)*[d, 0, 0])
           translate(10/2*[-1,-1,0])
             difference()
             {
@@ -118,8 +117,8 @@ module main_hull()
   // reinforcements for better rigidity of the bottom
   for(rot=[0, 90])
     rotate([0, 0, 45+rot])
-      translate([-wall/2, -340/2, wall])
-        cube([wall, 340, wall]);
+      translate([-wall/2, -cylinder_d/2, wall])
+        cube([wall, cylinder_d, wall]);
 }
 
 

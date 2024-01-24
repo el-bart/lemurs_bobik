@@ -1,5 +1,4 @@
 include<detail/config.scad>
-use<bottom.scad>
 use<m3d/fn.scad>
 
 
@@ -101,7 +100,7 @@ module play_stop_(h)
     arrow_(h);
 }
 
-module main_cap()
+module top()
 {
   // main plate
   difference()
@@ -141,7 +140,4 @@ module main_cap()
 }
 
 
-main_cap();
-
-if(false)
-  %translate([0,0,-cylinder_h]) main_hull();
+top();

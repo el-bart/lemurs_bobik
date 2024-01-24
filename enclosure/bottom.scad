@@ -1,5 +1,6 @@
 include<detail/config.scad>
 use<wheel.scad>
+use<seal.scad>
 use<detail/electronics_mocks.scad>
 use<detail/stepper_mock.scad>
 use<detail/battery_pack_holder.scad>
@@ -12,9 +13,9 @@ module main_hull()
   difference()
   {
     // core
-    cylinder(r=cylinder_d/2, h=75, $fn=fn(3*360));
+    cylinder(r=cylinder_d/2, h=cylinder_h, $fn=fn(3*360));
     translate(wall*[0,0,1])
-      cylinder(r=cylinder_d/2-wall, h=75, $fn=fn(3*360));
+      cylinder(r=cylinder_d/2-wall, h=cylinder_h, $fn=fn(3*360));
     // cut-outs for wheels
     for(dx=[-1,1])
       translate([dx*118-10/2, 0, 0])
@@ -76,14 +77,14 @@ module main_hull()
         translate([dx, dy, 0])
           difference()
           {
-            cube([10, 10, 75-wall-1]);
+            cube([10, 10, cylinder_h-wall-1]);
             // slot for M3 threaded inserts
-            translate([10/2, 10/2, 75-wall-1-15])
+            translate([10/2, 10/2, cylinder_h-wall-1-15])
               cylinder(d=4.6, h=15+1, $fn=fn(30));
           }
     translate([30, 15, 0])
-      cube([10, 10, 75-wall-1]);
-    %translate([0, 0, 75-wall-1])
+      cube([10, 10, cylinder_h-wall-1]);
+    %translate([0, 0, cylinder_h-wall-1])
       buttons_board();
   }
   // control board
@@ -110,9 +111,9 @@ module main_hull()
           translate(10/2*[-1,-1,0])
             difference()
             {
-              cube([10, 10, 75]);
+              cube([10, 10, cylinder_h]);
               // slot for M3 threaded inserts
-              translate([10/2, 10/2, 75-15])
+              translate([10/2, 10/2, cylinder_h-15])
                 cylinder(d=4.6, h=15+1, $fn=fn(30));
             }
   // reinforcements for better rigidity of the bottom
@@ -124,3 +125,8 @@ module main_hull()
 
 
 main_hull();
+
+if(true)
+{
+  %seal();
+}

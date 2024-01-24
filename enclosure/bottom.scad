@@ -1,5 +1,6 @@
 include<detail/config.scad>
 use<wheel.scad>
+use<top.scad>
 use<seal.scad>
 use<detail/electronics_mocks.scad>
 use<detail/stepper_mock.scad>
@@ -126,7 +127,13 @@ module main_hull()
 
 main_hull();
 
-if(true)
+%if(false)
 {
-  %seal();
+  delta = 10;
+  translate([0, 0, cylinder_h + delta])
+  {
+    seal();
+    translate([0, 0, seal_h + delta])
+      top();
+  }
 }

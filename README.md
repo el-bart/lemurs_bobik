@@ -22,6 +22,22 @@ robot's body is designed to mimic a bit autonomic vacuum cleaner robots, that ch
 * velcro for holding LiPo pack in place (length according to your LiPo size)
 
 
+## 3D printed parts
+
+`seal` is supposed to be printed in TPU.
+after printing, it shall be glued to a `bottom` part with CA glue.
+without gluing it will be very hard to put things in place.
+
+all the other elements can be printed in pretty much anything.
+my build was just in regular, white PLA.
+
+it's recommend to put some felt under from and rear edges of the bottom part.
+it's also worth gluing a thin strip of felt around wheels' external circumference.
+this will protect floors from sharp edges and decrease the amount of noise, on flat floors.
+
+while the `seal` is optional, it's highly recommended to silence vibrations.
+
+
 ## electronics
 
 ![main control board](pic/ctrl_board.jpg)

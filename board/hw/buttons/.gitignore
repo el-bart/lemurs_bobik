@@ -1,6 +1,7 @@
 # kicad
 *.net
 *-bak
+*.bak
 *-cache.lib
 fp-info-cache
 _autosave-*
